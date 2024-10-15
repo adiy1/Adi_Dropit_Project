@@ -1,0 +1,12 @@
+This Kubernetes job is designed to import a CSV file containing posts into a MongoDB instance within a Kubernetes cluster.
+
+Files Overview:
+posts.csv: Contains sample post data sourced from the MongoDB training website.
+import-csv-job.py: Python script that reads the CSV and imports the posts into MongoDB.
+Dockerfile: Used to create a container image for running the import job.
+import-csv-job.yaml: Kubernetes YAML file to deploy the job.
+
+Explanation:
+The task required importing a MongoDB db dump using the link provided in the assignment. However, the dump was unavailable, so I manually created a posts.csv file based on an example collection of posts found on the MongoDB training website. The import job uses this CSV file instead of the database dump.
+
+The job reads the posts.csv file and imports its contents into the MongoDB database running in the Kubernetes cluster.

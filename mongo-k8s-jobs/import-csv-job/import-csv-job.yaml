@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: import-csv-job
+  namespace: blog-namespace
+spec:
+  template:
+    spec:
+      containers:
+      - name: import-csv
+        image: 28032000/blog-import-csv-job-image:latest
+      restartPolicy: Never
+  backoffLimit: 4

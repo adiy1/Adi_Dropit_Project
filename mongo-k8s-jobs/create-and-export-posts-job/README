@@ -1,0 +1,20 @@
+
+This folder contains a Kubernetes Job that creates post via an API and exports all the posts to a CSV file.
+
+## Overview
+
+Since I worked on a Windows machine using Docker Desktop, I encountered issues with mounting volumes between the host and the container.
+Therefore, I ran the job using the current YAML file **without** volume mounts, keeping the container running for 5 minutes to manually copy the CSV file.
+
+I was using this command:
+kubectl cp blog-namespace/<pod_name>:/app/post.csv ./post.csv
+
+-----------------------
+On a Linux machine, you can directly mount the volume to your host to automatically export the CSV file outside the container.
+I’ve provided an example YAML file in the yaml-file-with-volumes folder.
+
+You can edit the hostPath in that file to point to a directory on your machine where you'd like the CSV to be exported.
+-----------------------
+
+Note: The post.csv file already present in this directory is an example that I exported during my testing.
+

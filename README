@@ -1,0 +1,9 @@
+Kubernetes Setup
+I included here two setup scripts to deploy a Kubernetes environment for running the app:
+
+setup.ps1 for Windows (PowerShell)
+setup.sh for Linux (Bash)
+Simply choose the appropriate script for your operating system to deploy the environment.
+
+Note:
+Make sure to update any necessary file paths within the scripts to match your directory structure before running them.

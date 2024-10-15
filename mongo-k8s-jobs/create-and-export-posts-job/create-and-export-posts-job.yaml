@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-and-export-posts-job
+  namespace: blog-namespace
+spec:
+  template:
+    spec:
+      containers:
+      - name: create-and-export-posts-container
+        image: 28032000/create-and-export-posts-image:latest
+      restartPolicy: Never
