@@ -1,0 +1,6 @@
+Kubernetes Resources for Blog App
+This folder contains the necessary Kubernetes resource definitions to deploy and manage the following components of the blog application:
+
+mongodb: MongoDB StatefulSet and service to persist data.
+server: Backend server that handles the blog API.
+app: Frontend application for interacting with the blog.

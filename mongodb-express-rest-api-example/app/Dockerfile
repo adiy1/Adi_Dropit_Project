@@ -1,0 +1,14 @@
+# Stage 1: Build the React application
+FROM node:lts AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+# Set environment variable to fix OpenSSL error
+ENV NODE_OPTIONS=--openssl-legacy-provider
+RUN npm run build
+# Stage 2: Serve the application with Nginx
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

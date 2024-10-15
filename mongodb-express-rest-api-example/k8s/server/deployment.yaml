@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-server
+  namespace: blog-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-server
+  template:
+    metadata:
+      labels:
+        app: blog-server
+    spec:
+      containers:
+      - name: blog-server
+        image: 28032000/blog-server-image:latest
+        ports:
+        - containerPort: 5050
+        env:
+        - name: MONGODB_URI
+          value: "mongodb://blog-mongodb:27017/sample_training"
+        - name: PORT
+          value: "5050"

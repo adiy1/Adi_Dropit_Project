@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-server
+  namespace: blog-namespace
+spec:
+  selector:
+    app: blog-server
+  ports:
+    - protocol: TCP
+      port: 5050
+      targetPort: 5050
+  type: ClusterIP

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: blog-mongodb
+  namespace: blog-namespace
+spec:
+  serviceName: "blog-mongodb"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-mongodb
+  template:
+    metadata:
+      labels:
+        app: blog-mongodb
+    spec:
+      containers:
+      - name: blog-mongodb
+        image: mongo:5.0
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: blog-mongodb-data
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: blog-mongodb-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
